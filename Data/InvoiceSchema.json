@@ -1,0 +1,100 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Invoice",
+  "description": "A schema for representing an invoice",
+  "type": "object",
+  "properties": {
+    "invoiceNumber": {
+      "description": "The unique identifier for the invoice",
+      "type": "string"
+    },
+    "dateIssued": {
+      "description": "The date when the invoice was issued",
+      "type": "string",
+      "format": "date"
+    },
+    "from": {
+      "description": "Information about the issuer of the invoice",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        },
+        "contactDetails": {
+          "type": "string"
+        }
+      },
+      "required": ["name", "address"]
+    },
+    "to": {
+      "description": "Information about the recipient of the invoice",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        },
+        "contactDetails": {
+          "type": "string"
+        }
+      },
+      "required": ["name", "address"]
+    },
+    "items": {
+      "type": "array",
+      "description": "List of items or services billed",
+      "items": {
+        "type": "object",
+        "properties": {
+          "description": {
+            "type": "string"
+          },
+          "quantity": {
+            "type": "number"
+          },
+          "unitPrice": {
+            "type": "number"
+          },
+          "total": {
+            "type": "number"
+          }
+        },
+        "required": ["description", "quantity", "unitPrice", "total"]
+      }
+    },
+    "subtotal": {
+      "type": "number",
+      "description": "Subtotal of the invoice before taxes and discounts"
+    },
+    "taxes": {
+      "type": "array",
+      "description": "List of applicable taxes",
+      "items": {
+        "type": "object",
+        "properties": {
+          "description": {
+            "type": "string"
+          },
+          "amount": {
+            "type": "number"
+          }
+        },
+        "required": ["description", "amount"]
+      }
+    },
+    "total": {
+      "type": "number",
+      "description": "Total amount to be paid"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Additional notes or comments on the invoice"
+    }
+  },
+  "required": ["invoiceNumber", "dateIssued", "from", "to", "items", "subtotal", "total"]
+}

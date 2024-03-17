@@ -1,0 +1,38 @@
+Given the following invoice details, extract and summarize the key information including the invoice number, date issued, issuer details, recipient details, list of items/services with prices, subtotal, applicable taxes and total amount due. Please do not inform me if some of the data is missing, just put empty string or 0. Also round up numbers (I don't want any leading zeroes)
+The response should be in JSON format as following:
+                    {
+                        "invoice_number": "12345",
+                        "date_issued": "16 June 2025",
+                        "issuer_details": {
+                            "name": "Samira Hadid",
+                            "address": "123 Anywhere St., Any City, ST 12345"
+                    },
+                        "recipient_details": {
+                            "name": "Imani Olowe",
+                            "contact_number": "+123-456-7890",
+                            "address": "63 Ivy Road, Hawkville, GA, USA 31036"
+                        },
+                        "items": [
+                            {
+                              "description": "Eggshell Camisole Top",
+                              "quantity": 1,
+                              "unit_price": 123,
+                              "total": 123
+                            },
+                            {
+                              "description": "Cuban Collar Shirt",
+                              "quantity": 2,
+                              "unit_price": 127,
+                              "total": 254
+                            },
+                            {
+                              "description": "Floral Cotton Dress",
+                              "quantity": 1,
+                              "unit_price": 123,
+                              "total": 123
+                            }
+                          ],
+                          "subtotal": 500,
+                          "taxes": 0,
+                          "total_amount_due": 500,
+                        }
