@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" VisualBasic.Settings="{x:Null}" sap2010:Annotation.AnnotationText="UPTF00000088eyI8SGVscExpbms+a19fQmFja2luZ0ZpZWxkIjpudWxsLCI8SW5pdGlhbFRvb2x0aXA+a19fQmFja2luZ0ZpZWxkIjpudWxsLCI8VmVyc2lvbj5rX19CYWNraW5nRmllbGQiOjF9" sap:VirtualizedContainerService.HintSize="618.4,3316.8" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ss="clr-namespace:System.Security;assembly=System.Private.CoreLib" xmlns:uasc="clr-namespace:UiPath.Activities.System.Collections;assembly=UiPath.System.Activities" xmlns:ue="clr-namespace:UiPath.Excel;assembly=UiPath.Excel.Activities" xmlns:ueab="clr-namespace:UiPath.Excel.Activities.Business;assembly=UiPath.Excel.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uwavsdb="clr-namespace:UiPath.Web.Activities.ViewModels.SWEntities.DeserializeJsonJObject_cc062d.Bundle;assembly=DeserializeJsonJObje.PlPqb1LOlXP1cyHg32CVst03" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" VisualBasic.Settings="{x:Null}" sap2010:Annotation.AnnotationText="UPTF00000088eyI8SGVscExpbms+a19fQmFja2luZ0ZpZWxkIjpudWxsLCI8SW5pdGlhbFRvb2x0aXA+a19fQmFja2luZ0ZpZWxkIjpudWxsLCI8VmVyc2lvbj5rX19CYWNraW5nRmllbGQiOjF9" sap:VirtualizedContainerService.HintSize="618.4,3135.2" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ss="clr-namespace:System.Security;assembly=System.Private.CoreLib" xmlns:ue="clr-namespace:UiPath.Excel;assembly=UiPath.Excel.Activities" xmlns:ueab="clr-namespace:UiPath.Excel.Activities.Business;assembly=UiPath.Excel.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uwavsdb="clr-namespace:UiPath.Web.Activities.ViewModels.SWEntities.DeserializeJsonJObject_cc062d.Bundle;assembly=DeserializeJsonJObje.PlPqb1LOlXP1cyHg32CVst03" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -122,7 +122,7 @@
       <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="496,3252" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="496,3070.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="strPictureAs64" />
       <Variable x:TypeArguments="x:String" Name="strUsername" />
@@ -179,32 +179,6 @@
         <InArgument x:TypeArguments="x:String">[New System.Net.NetworkCredential("", strAccessToken).Password]</InArgument>
       </Assign.Value>
     </Assign>
-    <uasc:AppendItemToCollection x:TypeArguments="njl:JObject" Collection="[lstMessage]" DisplayName="Create JSON Body" sap:VirtualizedContainerService.HintSize="433.6,181.6" sap2010:WorkflowViewState.IdRef="AppendItemToCollection`1_1" Result="[lstMessage]">
-      <uasc:AppendItemToCollection.Items>
-        <scg:List x:TypeArguments="InArgument(njl:JObject)" Capacity="4">
-          <InArgument x:TypeArguments="njl:JObject" xml:space="preserve">[JObject.FromObject(New With {
-    Key .model = "gpt-4-vision-preview",
-    Key .messages = New List(Of Object) From {
-        New With {
-            Key .role = "user",
-            Key .content = New List(Of Object) From {
-                New With {
-                    Key .type = "text",
-                    Key .text = "What’s in this image?"
-                },
-                New With {
-                    Key .type = "image_url",
-                    Key .image_url = New With {
-                        Key .url = $"data:image/jpeg;base64,{strPictureAs64}"
-                    }
-                }
-            }
-        }
-    }
-})]</InArgument>
-        </scg:List>
-      </uasc:AppendItemToCollection.Items>
-    </uasc:AppendItemToCollection>
     <ui:HttpClient ClientCertificate="{x:Null}" ClientCertificatePassword="{x:Null}" ConsumerKey="{x:Null}" ConsumerSecret="{x:Null}" ContinueOnError="{x:Null}" FileAttachments="{x:Null}" OAuth1Token="{x:Null}" OAuth1TokenSecret="{x:Null}" Password="{x:Null}" ResourcePath="{x:Null}" ResponseAttachment="{x:Null}" ResponseHeaders="{x:Null}" SecureClientCertificatePassword="{x:Null}" SecurePassword="{x:Null}" Username="{x:Null}" AcceptFormat="JSON" AuthenticationType="None" Body="[JObject.FromObject(New With {&#xD;&#xA;    Key .model = &quot;gpt-4-vision-preview&quot;,&#xD;&#xA;    Key .messages = New List(Of Object) From {&#xD;&#xA;        New With {&#xD;&#xA;&#x9;&#x9;&#x9;Key .role = &quot;system&quot;,&#xD;&#xA;&#x9;&#x9;&#x9;Key .content = New List(Of Object) From {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;New With {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;Key .type = &quot;text&quot;,&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;Key .text = &quot;You are a system that always extract information from an image in json_format. I will give you a $500 tip if you only respond in a json format.&quot;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;},&#xD;&#xA;&#x9;&#x9;New With {&#xD;&#xA;&#x9;&#x9;&#x9;Key .role = &quot;user&quot;,&#xD;&#xA;&#x9;&#x9;&#x9;Key .content = New List(Of Object) From {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;New With {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;Key .type = &quot;text&quot;,&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;Key .text = strPrompt&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;},&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;New With {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;Key .type = &quot;image_url&quot;,&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;Key .image_url = New With {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Key .url = $&quot;data:image/jpeg;base64,{strPictureAs64}&quot;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;    },&#xD;&#xA;&#x9;Key .max_tokens = 2000&#xD;&#xA;}).ToString]" BodyFormat="application/json" DisplayName="Call gpt-4-vision" EnableSSLVerification="True" EndPoint="https://api.openai.com/v1/chat/completions" sap:VirtualizedContainerService.HintSize="433.6,111.2" sap2010:WorkflowViewState.IdRef="HttpClient_1" Method="POST" OAuth2Token="[strPassword_As_String]" Result="[strResponse]" StatusCode="[intResponseStatus]" TimeoutMS="40000">
       <ui:HttpClient.Attachments>
         <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
